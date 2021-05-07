@@ -36,13 +36,12 @@ namespace MeteoAppSkeleton.Controller
 
         }
 
-        public Place requestMeteoByCoordinates(double lat, double lon)
+        public Meteo requestMeteoByCoordinates(double lat, double lon)
         {
             Meteo meteo = jsonToMeteo(ConnectionController.getConnectionController().getWeatherByCoordinates(lat, lon));
-            PlacesHolder.get().getPlaces()[0].meteo= meteo;
-            PlacesHolder.get().getPlaces()[0].name = meteo.name;
+            
 
-            return null;
+            return meteo;
         }
         public Meteo jsonToMeteo(String s)
         {

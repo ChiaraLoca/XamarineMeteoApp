@@ -1,15 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MeteoAppSkeleton.Views.AddNewLocation">
+    
+
     <ContentPage.Content>
-        <RelativeLayout x:Name="container">
+        <StackLayout x:Name="container" Margin="20,20,20,20">
 
 
-            <StackLayout Margin="20,0,0,0">
+            
                 <Label HorizontalTextAlignment="Center" Text="Add new location" FontSize="24"/>
                 <Entry x:Name="EntryLocation" Text="{Binding EntryText, Mode=TwoWay}"  Placeholder="new Location" Keyboard="Text" HorizontalTextAlignment="Center" Margin="40,0" FontSize="24"/>
                 <Button Margin="80,0" Text="Add" Clicked="OnButtonClicked" FontSize="24"/>
-            </StackLayout>
             
-        </RelativeLayout>
+            
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

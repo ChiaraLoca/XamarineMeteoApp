@@ -2,6 +2,7 @@
 using MeteoAppSkeleton.Controller;
 using MeteoAppSkeleton.Models;
 using MeteoAppSkeleton.ViewModels;
+using Plugin.Toast;
 using System;
 using Xamarin.Forms;
 
@@ -17,8 +18,7 @@ namespace MeteoAppSkeleton.Views
         async void OnButtonClicked(object sender, EventArgs args)
         {
 
-            string t;
-            await DisplayAlert("Valication location "+ (t=EntryLocation.Text) + ", plase wait", "", "OK");
+            string t = EntryLocation.Text;
 
             if (t != null)
             {
@@ -28,7 +28,7 @@ namespace MeteoAppSkeleton.Views
 
                 Place place = meteoController.requestMeteoByPlace(t);
                 if (place == null)
-                    await DisplayAlert("Location " + t + " not found", "", "OK");
+                     await DisplayAlert("Location " + t + " not found", "", "OK");
                 else
                 {
                     await DisplayAlert("Location " + t + " added", "", "OK");
@@ -36,8 +36,10 @@ namespace MeteoAppSkeleton.Views
 
                 }
             }
+            EntryLocation.Text = "";
 
-            
+
+
 
         }
     }

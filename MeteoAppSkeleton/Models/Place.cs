@@ -1,5 +1,6 @@
 ﻿using MeteoAppSkeleton.Controller;
 using MeteoAppXF.Models;
+using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using System;
 
@@ -12,6 +13,7 @@ namespace MeteoAppSkeleton.Models
         public Position position { get; set; }
         public Meteo meteo { get; set; }
         public String name { get; set; }
+        public String image { get; set; }
 
         public Place(PlaceDBElement p)
         {
@@ -31,11 +33,27 @@ namespace MeteoAppSkeleton.Models
         {
             this.uuid = uuid;
             this.name = name;
+            GetLocation();
         }
+
 
         public void updateMeteo(String s)
         {
             this.meteo = MeteoController.getInstance().jsonToMeteo(s);
+        }
+
+        async void GetLocation()
+        {
+            var locator = CrossGeolocator.Current; // singleton
+            this.position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
+
+            if (position != null)
+            {
+                meteo = MeteoController.getInstance().requestMeteoByCoordinates(position.Latitude, position.Longitude);
+                this.name = meteo.name;
+                this.image = "";
+            }
+
         }
     }
 }

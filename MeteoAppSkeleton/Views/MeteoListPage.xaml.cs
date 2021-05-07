@@ -1,4 +1,5 @@
 ﻿using System;
+using MeteoAppSkeleton.Controller;
 using MeteoAppSkeleton.Models;
 using MeteoAppSkeleton.ViewModels;
 using Xamarin.Forms;
@@ -26,8 +27,13 @@ namespace MeteoAppSkeleton.Views
 
         void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem != null)
+            Place place = (Place)e.SelectedItem;
+            if (place != null)
             {
+                if (place.meteo == null) {
+                    Place newplace = MeteoController.getInstance().requestMeteoByPlace(place.name);
+                    place.meteo = newplace.meteo;
+                }
                 Navigation.PushAsync(new MeteoItemPage()
                 {
                     //BindingContext = e.SelectedItem as Models.Place
