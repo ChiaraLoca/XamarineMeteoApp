@@ -3,7 +3,7 @@ using MeteoAppXF.Models;
 using Plugin.Geolocator;
 using Plugin.Geolocator.Abstractions;
 using System;
-
+using Xamarin.Forms;
 
 namespace MeteoAppSkeleton.Models
 {
@@ -34,6 +34,7 @@ namespace MeteoAppSkeleton.Models
             this.uuid = uuid;
             this.name = name;
             GetLocation();
+           
         }
 
 
@@ -51,9 +52,15 @@ namespace MeteoAppSkeleton.Models
             {
                 meteo = MeteoController.getInstance().requestMeteoByCoordinates(position.Latitude, position.Longitude);
                 this.name = meteo.name;
-                this.image = "";
+                addIcon(meteo.weather[0].icon);
             }
 
+        }
+
+        public void addIcon(string id)
+        {
+            String s = "image" + id + ".png";
+            this.image = Device.RuntimePlatform == Device.Android ? s : "Images/"+s;
         }
     }
 }

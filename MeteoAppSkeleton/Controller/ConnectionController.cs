@@ -28,6 +28,10 @@ namespace MeteoAppSkeleton.Controller
         {
             return send(weatherUrl.getUrlByCityNames(cityName));
         }
+        public String getImageById(long id)
+        {
+            return weatherUrl.getUrlImageById(id);
+        }
 
 
         private String send(String urlstr)

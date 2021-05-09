@@ -34,11 +34,18 @@ namespace MeteoAppSkeleton.Views
                 if (place.meteo == null) {
                     Place newplace = MeteoController.getInstance().requestMeteoByPlace(place.name);
                     if (newplace != null)
+                    {
                         place.meteo = newplace.meteo;
+                        place.addIcon(newplace.meteo.weather[0].icon);
+                    }
                 }
+
+                Console.WriteLine("IMAGE: "+place.image+"------------------------------------------------------------------");
                 Navigation.PushAsync(new MeteoItemPage()
                 {
                     //BindingContext = e.SelectedItem as Models.Place
+
+                    
                     BindingContext = new MeteoItemViewModel(e.SelectedItem as Place)
                 });
             }

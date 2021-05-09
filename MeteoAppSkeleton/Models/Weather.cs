@@ -8,13 +8,13 @@ namespace MeteoAppSkeleton.Models
     public class Weather
     {
         [JsonProperty("id")]
-        private long id { get; set; }
+        public long id { get; set; }
         [JsonProperty("main")]
-        private String main { get; set; }
+        public String main { get; set; }
         [JsonProperty("description")]
-        private String description { get; set; }
+        public String description { get; set; }
         [JsonProperty("icon")]
-        private String icon { get; set; }
+        public String icon { get; set; }
 
         
         override public String ToString()

@@ -33,8 +33,11 @@ namespace MeteoAppSkeleton.Views
                 {
                     await DisplayAlert("Location " + t + " added", "", "OK");
                     MeteoListViewModel.getInstance().add(place);
+                    place.addIcon(place.meteo.weather[0].icon);
+
 
                 }
+
             }
             EntryLocation.Text = "";
 

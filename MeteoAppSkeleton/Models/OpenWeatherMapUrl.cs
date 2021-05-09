@@ -9,7 +9,7 @@ namespace MeteoAppSkeleton.Models
 
     private  String key = "7ddde84d539794606c350736562fab25";
     private  String initWeather = "https://api.openweathermap.org/data/2.5/weather?";
-    private  String initImage = "http://openweathermap.org/img/wn/";
+    private  String initImage = "https://openweathermap.org/img/wn/";
     private  String endImage = "@2x.png";
 
     
@@ -25,7 +25,7 @@ namespace MeteoAppSkeleton.Models
     }
 
    
-    public String getUrlImageById(String imageId)
+    public String getUrlImageById(long imageId)
     {
         return initImage + imageId + endImage;
     }

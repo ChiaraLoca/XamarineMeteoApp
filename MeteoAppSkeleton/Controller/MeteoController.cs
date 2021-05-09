@@ -43,6 +43,11 @@ namespace MeteoAppSkeleton.Controller
 
             return meteo;
         }
+
+        public string requestImageByid(long id)
+        {
+            return ConnectionController.getConnectionController().getImageById(id);
+        }
         public Meteo jsonToMeteo(String s)
         {
 
