@@ -28,11 +28,13 @@ namespace MeteoAppSkeleton.Views
         void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Place place = (Place)e.SelectedItem;
-            if (place != null)
+             
+            if (place != null && !place.name.Equals("Locale"))
             {
                 if (place.meteo == null) {
                     Place newplace = MeteoController.getInstance().requestMeteoByPlace(place.name);
-                    place.meteo = newplace.meteo;
+                    if (newplace != null)
+                        place.meteo = newplace.meteo;
                 }
                 Navigation.PushAsync(new MeteoItemPage()
                 {

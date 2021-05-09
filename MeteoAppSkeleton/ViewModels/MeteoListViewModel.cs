@@ -36,8 +36,11 @@ namespace MeteoAppSkeleton.ViewModels
             db = DBController.get();
             Entries = new ObservableCollection<Place>();
             Entries.Add(new Place(Guid.NewGuid(), "Locale"));
+
             var dbEntries = db.GetItemsAsync().Result;
+
             dbEntries.ForEach((p) => { Entries.Add(new Place(p)); });
+            
         }
 
         public void add(Place p)
