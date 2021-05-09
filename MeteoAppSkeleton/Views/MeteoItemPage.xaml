@@ -4,24 +4,21 @@
     <ContentPage.Content>
         <RelativeLayout x:Name="container">
 
-            <StackLayout Margin="20,0,0,0">
+            <StackLayout Margin="20,20,20,20">
                 <Label HorizontalTextAlignment="Center" Text="Meteo details" FontSize="24"/>
                 <Label HorizontalTextAlignment="Center" Text="{Binding Place.name}"  FontSize="24"/>
                 <Label HorizontalTextAlignment="Center" Text="{Binding Place.uuid}" FontSize="24"/>
                 <Label HorizontalTextAlignment="Center" Text="{Binding Place.meteo.coord}" FontSize="24"/>
-                <BoxView   VerticalOptions="Center"
-           HorizontalOptions="Center"
-           HeightRequest="1"
-           WidthRequest="300"  
-           Color="#5b5d68"></BoxView>
+                
+                <BoxView   VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="300" Color="#5b5d68" Margin="10,10,10,10"></BoxView>
+                
                 <Image Source="https://image.shutterstock.com/image-vector/yellow-sun-flat-design-icon-600w-1897043881.jpg"></Image>
                 <Label HorizontalTextAlignment="Center" Text="{Binding Place.meteo.weather[0]}" FontSize="24"/>
-                <BoxView   VerticalOptions="Center"
-           HorizontalOptions="Center"
-           HeightRequest="1"
-           WidthRequest="300"  
-           Color="#5b5d68"></BoxView>
+
+                <BoxView   VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="1" WidthRequest="300" Color="#5b5d68" Margin="10,10,10,10"></BoxView>
+
                 <Label HorizontalTextAlignment="Center" Text="{Binding Place.meteo.main}" FontSize="24"/>
+                
 
             </StackLayout>
 

@@ -25,7 +25,7 @@ namespace MeteoAppSkeleton.Models
 
         override public String ToString()
         {
-            return "Coordinates" + lon + "," + lat;
+            return "Coordinates: " + lon + " - " + lat;
         }
 
 

@@ -7,6 +7,8 @@ namespace MeteoAppSkeleton.Models
 {
     public class Main
     {
+        
+
         [JsonProperty("temp")]
         private double temp { get; set; }
         
@@ -29,13 +31,21 @@ namespace MeteoAppSkeleton.Models
 
         override public String ToString()
         {
-            return "minimum temperature:" + temp_min +
-                    "\ncurrent temperature:" + temp +
-                    "\nmaximum temperature:" + temp_max;
+           return String.Format("Minimum temperature: {0:0.00}°" +
+                "\nCurrent temperature: {1:0.00}° " +
+                "\nMaximum temperature: {2:0.00}° ", 
+                (temp_min - 273.15), (temp - 273.15), (temp_max - 273.15));
+
+            /*return "Minimum temperature: " + (temp_min - 273.15) + "°" +
+                    "\nCurrent temperature: " + (temp_max - 273.15) + "°" +
+                    "\nMaximum temperature: " + (temp - 273.15) + "°";*/
 
 
            
         }
+
+        
+
 
         public Main()
         {
@@ -49,6 +59,9 @@ namespace MeteoAppSkeleton.Models
             this.temp_max = temp_max;
             this.pressure = pressure;
             this.humidity = humidity;
+
+            
+
         }
     }
 
